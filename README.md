@@ -20,7 +20,7 @@ This project implements the functionality of a simple restaurant recommender whi
 			cuisines = ["swabian", "turkish", "thai", "chinese", "italian"]
 			price_levels = ["cheap", "normal", "expensive"]
 --- 
-## Java. Java Corpus Analyzing for Flesch Readabillity Index
+## Java. Corpus Analyzing for Flesch Readabillity Index
 This project analyzes a text file and returns a [Flesch Readbility Index](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests) of it.
 
 ### Algorithm
