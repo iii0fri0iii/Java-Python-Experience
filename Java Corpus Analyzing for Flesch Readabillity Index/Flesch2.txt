@@ -1,0 +1,3 @@
+Flesch invented an index to check whether a text is easy
+to read. To compute the index, you need not look at
+the meaning of the words.
