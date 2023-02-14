@@ -225,51 +225,41 @@ def dialog_system(database_fn):
 if __name__ == '__main__':
     
     database_fn = "database.tsv"
-    example_sentence = "I am looking for cheap thai and swabian restaurants."
+    example_sentence1 = "I am looking for turkish restaurants with normal prices in Tuebingen with."
+    example_sentence2 = "I am looking for cheap thai and swabian restaurants."
     additional_info = "around Stuttgart"
     incomplete_slots = ([], ['thai', 'swabian'], ['cheap'])
     complete_slots = (['Stuttgart'], ['thai', 'swabian'], ['cheap'])
     
-    # checking the work of advanced_fill_slots
-    print("Checking advanced_fill_slots...")
-    print("Input sentence: '" + example_sentence + "'")
-    example_slots = advanced_fill_slots(example_sentence)
+    #checking the easy case
+    print("Case 1. User searchs for results properly.")
+    print("User inputs: '" + example_sentence1 + "'")
+    example_slots = advanced_fill_slots(example_sentence1)
+    print("Slots (complete information): " + str(example_slots))
+    result_for_complete_slots=search_in_database(example_slots, read_database_file(database_fn))
+    print("Answer: " + generate_answer(result_for_complete_slots))
+    print("---------- + ----------")
+    
+    # checking the hard case
+    print("Case 2. User gives incomplete info.")
+    print("User inputs: '" + example_sentence2 + "'")
+    example_slots = advanced_fill_slots(example_sentence2)
     print("Slots (incomplete information): " + str(example_slots))
-    print("Additional information: '" + str(additional_info) + "'")
+    print("Program asks: "+generate_question(example_slots))
+    print("User inputs additional information: '" + str(additional_info) + "'")
     complete_example_slots = advanced_fill_slots(additional_info, example_slots)
     print("Slots (complete information): " + str(complete_example_slots))
+    result_for_complete_slots=search_in_database(complete_example_slots, read_database_file(database_fn))
+    print("Answer: " + generate_answer(result_for_complete_slots))
+    print("Note, that program also considers the case when several restaurants are suitable")
     print("---------- + ----------")
     
-    # checking the work of is_not_complete
-    print("Checking is_not_complete...")
-    print("incomplete slots: " + str(is_not_complete(incomplete_slots)))
-    print("complete slots: " + str(is_not_complete(complete_slots)))
-    print("---------- + ----------")
-    
-    # checking the work of generate_question. 
-    print("Checking generate_question...")
-    print("Given input: ([], ['thai', 'swabian'], ['cheap']), the function returns:")
-    print(generate_question(([], ['thai', 'swabian'], ['cheap'])))
-    print("---------- + ----------")
-    
-    # reading the database. 
-    print("Reading the database...")
-    db = read_database_file(database_fn)
-    print("---------- + ----------")
-
-    # searching for suitable results.
-    print("Searching for suitable results...")
-    possible_results = search_in_database(complete_example_slots, db)
-    print(possible_results)
-    print("---------- + ----------")
-    
-    # generating a well-formed output
-    print("Generating a well-formed output for the dialogue system...")
-    well_formed_output = generate_answer(possible_results)
-    print("'" + well_formed_output + "'")
-
-    print("---------- + ----------")
 
     # run the dialog system
+    print("You can try it out.")
+    print("Please, use these keywords:")
+    print(str(locations))
+    print(str(cuisines))
+    print(str(price_levels))
     dialog_system(database_fn)
  
