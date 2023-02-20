@@ -12,7 +12,7 @@ This model can be used for:
 4. Random sentences generating
 
 ### Test it!
-1. Ran the Python file
+1. Run the Python file
 2. It will give you an example of program use with 2-grams and provided database file with German sentences
 
 ## Python. Restaurant Search using NLP 
