@@ -1,6 +1,22 @@
 # Python, Java Experience
 
-## Python. Restaurant Search using NLP
+## Python. Working with N-grams 
+
+In this project language model with N-grams*  is created based on the input database.
+\**N-grams - sequences of N items. In our case, items  are words or punctuation signs)*
+
+This model can be used for:
+1. Calculating probabilities of N-grams
+2. Calculating conditional probabilities of different tokens appearing at the end of N-gram
+3. Random token generating after a sequence of tokens based on conditional probability of it
+4. Random sentences generating
+
+### Test it!
+1. Ran the Python file
+2. It will give you an example of program use with 2-grams and provided database file with German sentences
+
+## Python. Restaurant Search using NLP 
+
 This project implements the functionality of a simple restaurant recommender which will process the user input and search for the most suitable options for the given request, using the database.
 
 ### Algorithm
@@ -11,22 +27,7 @@ This project implements the functionality of a simple restaurant recommender whi
 5. Program finds a restaurant in data and returns result
 ### Test it!
 1. Run the Python file
-2. It will give you examples of probable users search and program's answers to it
-	```
-	Case 1. User searchs for results properly.
-	User inputs: 'I am looking for turkish restaurants with normal prices in Tuebingen with.'
-	Slots (complete information): (['Tuebingen'], ['turkish'], ['normal'])
-	Answer: There is one restaurant which you could find interesting: Aspendos
-	---------- + ----------
-	Case 2. User gives incomplete info.
-	User inputs: 'I am looking for cheap thai and swabian restaurants.'
-	Slots (incomplete information): ([], ['thai', 'swabian'], ['cheap'])
-	Program asks: Which area are you interested in?
-	User inputs additional information: 'around Stuttgart'
-	Slots (complete information): (['Stuttgart'], ['thai', 'swabian'], ['cheap'])
-	Answer: There are several restaurants which you could find interesting: Goldener Adler, Thai Thaani
-	Note, that program also considers the case when several restaurants are suitable
-	```
+2. It will give you examples of probable users search and program's answers to it	```
 3. Then it will run the dialogue system, where you can try it by your own*
 >Note: the list of keywords you can use in program:
 			locations = ["Tuebingen", "Reutlingen", "Stuttgart"]
@@ -34,9 +35,12 @@ This project implements the functionality of a simple restaurant recommender whi
 			price_levels = ["cheap", "normal", "expensive"]
 --- 
 ## Java. Corpus Analyzing for Flesch Readabillity Index
+
+
+
 This project analyzes a text file and returns a [Flesch Readbility Index](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests) of it.
 
-### Algorithm
+### Algorithm 
 1. Program reads an external text file 
 2. It identifies words, sentences and syllables 
 3. It calculates their numbers and uses these parameters for Flesch Index calculation
